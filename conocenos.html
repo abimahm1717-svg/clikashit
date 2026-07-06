@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clika Caps | Identidad y Estilo Urbano</title>
+    <link rel="stylesheet" href="conocenos.css">
+</head>
+</head>
+<body>
+
+    <!-- CABECERA -->
+   <header>
+        <div class="logo-container">
+            <div class="logo-placeholder">
+                <!-- REEMPLAZA ESTA URL POR LA DE TU LOGO LOCAL (ej: img/logo.png) -->
+                <img src="tt.png" alt="Logo Clika Caps">
+            </div>
+            <div class="logo-text">
+                <h1>CLIKA<span>CAPS</span></h1>
+            </div>
+        </div>
+        <nav>
+             <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Galería</a></li>
+                <li><a href="conocenos.html">Conocenos</a></li>
+                <li><a href="vision.html">Visión</a></li>
+                <li><a href="redes.html">Redes sociales</a></li>
+                <li><a href="probedores.html">Probedores</a></li>
+                <li><a href="form.html">Unete</a></li>
+                <li><a href="ubicacion.html"Class="active">Ubicacion</a></li>
+            </ul>     
+        </nav>
+    </header>
+    <!-- CARRUSEL DE IMÁGENES AUTOMÁTICO / MANUAL -->
+    <div class="carousel-container">
+        <div class="carousel-slide" id="slide">
+            
+            <!-- Imagen 1: MLB -->
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1200');">
+                <div class="carousel-caption">
+                    <h2>Colección MLB</h2>
+                    <p>Las más duras del diamante</p>
+                </div>
+            </div>
+
+            <!-- Imagen 2: NBA -->
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1519766304817-4f37bda74a27?q=80&w=1200');">
+                <div class="carousel-caption">
+                    <h2>Estilo NBA</h2>
+                    <p>Cultura de duela en las calles</p>
+                </div>
+            </div>
+
+            <!-- Imagen 3: NFL -->
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1572424273913-b6d80d9049af?q=80&w=1200');">
+                <div class="carousel-caption">
+                    <h2>Línea NFL</h2>
+                    <p>Pasión y rudeza en cada bordado</p>
+                </div>
+            </div>
+
+            <!-- Imagen 4: Urbana general -->
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=1200');">
+                <div class="carousel-caption">
+                    <h2>Streetwear Puro</h2>
+                    <p>Forma parte de la Clika</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botones de control -->
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- SECCIÓN DE IDENTIDAD (QUÉ ES CLIKA CAPS) -->
+    <section class="about-section" id="conocenos">
+        
+        <div class="store-description">
+            <h2>¿Qué es Clika Caps?</h2>
+            <p>
+                Somos más que una tienda en línea; somos el punto de encuentro para quienes ven en una gorra una declaración de identidad. Nacimos para traer el verdadero estilo urbano y la cultura del streetwear a tus manos.
+            </p>
+        </div>
+
+        <div class="about-grid">
+            <!-- Tarjeta 1: El Sitio Web -->
+            <div class="about-card">
+                <h3>El Sitio Web</h3>
+                <p>
+                    Nuestra plataforma digital está diseñada para los amantes de las gorras que buscan exclusividad y comodidad. Aquí encontrarás un catálogo cuidadosamente seleccionado con un sistema de navegación rápido y visual, asegurando que encuentres la pieza perfecta para tu estilo sin complicaciones.
+                </p>
+            </div>
+
+            <!-- Tarjeta 2: La Tienda -->
+            <div class="about-card">
+                <h3>La Tienda</h3>
+                <p>
+                    Clika Caps se especializa en gorras originales y premium de las marcas y ligas más importantes del mundo (MLB, NBA, NFL). Nos dedicamos a conseguir esos modelos icónicos y siluetas esenciales (Snapbacks, Fitted, Strapbacks) que imponen respeto y marcan la diferencia en las calles.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        &copy; 2026 Clika Caps. Diseñado para la cultura urbana. Todos los derechos reservados.
+    </footer>
+
+    <!-- SCRIPT PARA EL FUNCIONAMIENTO DEL CARRUSEL -->
+    <script>
+        let currentIndex = 0;
+        const slide = document.getElementById('slide');
+        const totalSlides = 4; // Total de imágenes en el carrusel
+
+        function updateSlide() {
+            // Desplaza el contenedor usando porcentajes (0%, -100%, -200%, -300%)
+            slide.style.transform = `translateX(-${currentIndex * 25}%)`;
+        }
+
+        function moveSlide(direction) {
+            currentIndex += direction;
+            
+            // Ciclar el carrusel si llega al final o al principio
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            }
+            
+            updateSlide();
+        }
+
+        // Cambio automático cada 4 segundos
+        setInterval(() => {
+            moveSlide(1);
+        }, 4000);
+    </script>
+
+</body>
+</html>

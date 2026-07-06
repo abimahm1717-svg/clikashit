@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clika Caps | ¡Gracias!</title>
+    <!-- Íconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .thanks-container {
+            background-color: #1a1a1a;
+            max-width: 500px;
+            width: 100%;
+            padding: 50px 30px;
+            border-radius: 8px;
+            border-top: 4px solid #ff3e3e;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        /* Icono de Check Animado */
+        .success-icon {
+            font-size: 60px;
+            color: #ff3e3e;
+            margin-bottom: 25px;
+            animation: scaleUp 0.4s ease-out forwards;
+        }
+
+        .thanks-container h1 {
+            text-transform: uppercase;
+            font-size: 28px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .thanks-container h1 span {
+            color: #ff3e3e;
+        }
+
+        .thanks-container p {
+            color: #aaa;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        /* Botón Volver al Inicio */
+        .btn-back {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px;
+            background-color: transparent;
+            border: 2px solid #ff3e3e;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #ff3e3e;
+            transform: translateY(-2px);
+        }
+
+        .btn-back:active {
+            transform: translateY(0);
+        }
+
+        /* Pequeña animación de entrada para el icono */
+        @keyframes scaleUp {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="thanks-container">
+        <!-- Ícono de éxito -->
+        <div class="success-icon">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <h1>¡Gracias por tu <span>mensaje</span>!</h1>
+        <p>Tu información se ha enviado correctamente. Nos pondremos en contacto contigo lo antes posible.</p>
+        
+        <!-- Botón de regreso -->
+        <a href="index.html" class="btn-back">
+            <i class="fa-solid fa-house"></i> Volver al inicio
+        </a>
+    </div>
+
+</body>
+</html>

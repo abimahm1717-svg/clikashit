@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clika Caps | Catálogo Oficial</title>
+    <style>
+        /* Estilos Generales Estilo Streetwear */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+                a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar / Cabecera */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #ff3e3e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* --- ESPACIO PARA EL LOGO EN LA NAVBAR --- */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background-color: #2a2a2a;
+            border: 2px solid #ff3e3e;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text h1 {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: #ff3e3e;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff3e3e;
+        }
+
+
+        /* --- DISEÑO DE CONTENEDOR PRINCIPAL --- */
+        .main-layout {
+            display: flex;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 40px 2%;
+            gap: 30px;
+        }
+
+        /* --- COLUMNA DE CONTENIDO (SECCIONES EN 2 COLUMNAS) --- */
+        .catalog-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Dos columnas para las secciones */
+            gap: 40px;
+        }
+
+        /* --- MENÚ VERTICAL FIJO (LADO DERECHO) --- */
+        .category-nav-vertical {
+            width: 260px;
+            position: sticky;
+            top: 110px; /* Separación de la navbar */
+            height: calc(100vh - 150px);
+            background-color: #1a1a1a;
+            padding: 25px 20px;
+            border-radius: 8px;
+            border-right: 4px solid #ff3e3e; /* Detalle de marca en el lateral */
+            box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+        }
+
+        .category-nav-vertical h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 5px;
+        }
+
+        .category-nav-vertical a {
+            display: block;
+            padding: 10px 15px;
+            background-color: #121212;
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .category-nav-vertical a:hover {
+            background-color: #ff3e3e;
+            border-color: #ff3e3e;
+            color: #fff;
+            transform: translateX(-5px); /* Efecto sutil hacia la izquierda */
+        }
+
+        /* Secciones de Categorías */
+        .catalog-section {
+            background-color: #161616;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            scroll-margin-top: 110px; /* Evita que la navbar tape el título al scrollear */
+        }
+
+        .section-title {
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 4px solid #ff3e3e;
+            padding-left: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-title span {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+            text-transform: none;
+        }
+
+        /* Grid de Productos interno (dentro de cada sección) */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        /* Tarjeta de Producto */
+        .product-card {
+            background-color: #1a1a1a;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: #ff3e3e;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            background-color: #252525;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ff3e3e;
+            padding: 2px 6px;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 12px;
+        }
+
+        .product-name {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-price {
+            color: #ff3e3e;
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .btn-add {
+            display: block;
+            text-align: center;
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ff3e3e;
+            padding: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn-add:hover {
+            background-color: #ff3e3e;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 30px 5%;
+            text-align: center;
+            border-top: 1px solid #2a2a2a;
+            color: #555555;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        /* --- RESPONSIVIDAD --- */
+        @media (max-width: 1024px) {
+            .catalog-content {
+                grid-template-columns: 1fr; /* Pasa a una sola columna si la pantalla es mediana */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column-reverse; /* El menú se mueve abajo/arriba en móvil para no estorbar */
+            }
+            .category-nav-vertical {
+                width: 100%;
+                position: relative;
+                top: 0;
+                height: auto;
+                border-right: none;
+                border-bottom: 4px solid #ff3e3e;
+            }
+        }
+    </style>
+</head>
+<body>
+   <header>
+        <div class="logo-container">
+            <div class="logo-placeholder">
+                <!-- REEMPLAZA ESTA URL POR LA DE TU LOGO LOCAL (ej: img/logo.png) -->
+                <img src="tt.png" alt="Logo Clika Caps">
+            </div>
+            <div class="logo-text">
+                <h1>CLIKA<span>CAPS</span></h1>
+            </div>
+        </div>
+        <nav>
+             <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Galería</a></li>
+                <li><a href="conocenos.html">Conocenos</a></li>
+                <li><a href="vision.html">Visión</a></li>
+                <li><a href="redes.html">Redes sociales</a></li>
+                <li><a href="probedores.html">Probedores</a></li>
+                <li><a href="form.html">Unete</a></li>
+                <li><a href="ubicacion.html"Class="active">Ubicacion</a></li>
+            </ul>     
+        </nav>
+    </header>
+
+    <!-- CONTENEDOR ESTRUCTURAL MÁSTER -->
+    <div class="main-layout">
+
+        <!-- COLUMNA IZQUIERDA: LAS SECCIONES DEL CATÁLOGO (DISTRIBUIDAS EN 2 COLUMNAS) -->
+        <main class="catalog-content">
+
+            <!-- 1. ORION-HATS -->
+            <section class="catalog-section" id="orion">
+                <div class="section-title">Orion Hats <span>Colección Premium</span></div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400');"></div>
+                        <div class="product-info">
+                            <div class="product-name">Orion Black Stellar</div>
+                            <div class="product-price">$450.00</div>
+                            <a href="#" class="btn-add">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. ECONOMICA-TANKUS -->
+            <section class="catalog-section" id="economica">
+                <div class="section-title">Económica Tankus <span>Estilo Accesible</span></div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1572424273913-b6d80d9049af?w=400');"></div>
+                        <div class="product-info">
+                            <div class="product-name">Tankus Street Classic</div>
+                            <div class="product-price">$220.00</div>
+                            <a href="#" class="btn-add">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. GORRA DE BROCHE NEW ERA -->
+            <section class="catalog-section" id="broche">
+                <div class="section-title">Gorra de Broche New Era <span>Snapback Ajustable</span></div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400');">
+                            <div class="product-tag">9FORTY</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">New Era LA Dodgers</div>
+                            <div class="product-price">$480.00</div>
+                            <a href="#" class="btn-add">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. GORRA SEMI-CURVA NEW ERA -->
+            <section class="catalog-section" id="semicurva">
+                <div class="section-title">Gorra Semi-Curva New Era <span>Silueta Urbana</span></div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1534215754734-18e55d13ce3a?w=400');">
+                            <div class="product-tag">39THIRTY</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Chicago Bulls Semi-Curva</div>
+                            <div class="product-price">$499.00</div>
+                            <a href="#" class="btn-add">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. GORRA NEW ERA -->
+            <section class="catalog-section" id="newera">
+                <div class="section-title">Gorra New Era <span>Fitted 59FIFTY Original</span></div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400');">
+                            <div class="product-tag">59FIFTY</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">NY Yankees Fitted</div>
+                            <div class="product-price">$550.00</div>
+                            <a href="#" class="btn-add">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. DANDY HATS 1.1 -->
+            <section class="catalog-section" id="dandy">
+                <div class="section-title">Dandy Hats 1.1 <span>Calidad Espejo</span></div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://via.placeholder.com/400x240/1a1a1a/fff?text=Dandy+Hats');">
+                            <div class="product-tag">G5 1.1</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Dandy Luxury Gold</div>
+                            <div class="product-price">$380.00</div>
+                            <a href="#" class="btn-add">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. BARBAS HATS 1.1 -->
+            <section class="catalog-section" id="barbas">
+                <div class="section-title">Barbas Hats 1.1 <span>Cultura Streetwear</span></div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://via.placeholder.com/400x240/1a1a1a/fff?text=Barbas+Hats');">
+                            <div class="product-tag">G5 1.1</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Barbas Black Label</div>
+                            <div class="product-price">$380.00</div>
+                            <a href="#" class="btn-add">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. THIRTY ONE HATS 1.1 -->
+            <section class="catalog-section" id="thirtyone">
+                <div class="section-title">Thirty One Hats 1.1 <span>Modelos Exclusivos</span></div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://via.placeholder.com/400x240/1a1a1a/fff?text=Thirty+One');">
+                            <div class="product-tag">G5 1.1</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Thirty One Urban Camo</div>
+                            <div class="product-price">$390.00</div>
+                            <a href="#" class="btn-add">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. BELICA-PLACA -->
+            <section class="catalog-section" id="belica">
+                <div class="section-title">Bélica Placa <span>Diseños con Carácter</span></div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://via.placeholder.com/400x240/1a1a1a/fff?text=Belica+Placa');">
+                            <div class="product-tag">Placa Metal</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Gorra Placa "Clika"</div>
+                            <div class="product-price">$420.00</div>
+                            <a href="#" class="btn-add">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- COLUMNA DERECHA: MENÚ VERTICAL ASIDE FIJO -->
+        <aside class="category-nav-vertical">
+            <h3>Categorías</h3>
+            <a href="#orion">Orion Hats</a>
+            <a href="#economica">Económica Tankus</a>
+            <a href="#broche">Broche New Era</a>
+            <a href="#semicurva">Semi-Curva New Era</a>
+            <a href="#newera">New Era Clásica</a>
+            <a href="#dandy">Dandy Hats 1.1</a>
+            <a href="#barbas">Barbas Hats 1.1</a>
+            <a href="#thirtyone">Thirty One 1.1</a>
+            <a href="#belica">Bélica Placa</a>
+        </aside>
+
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        &copy; 2026 Clika Caps. Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>

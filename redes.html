@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clika Caps | Redes Sociales</title>
+    <!-- Íconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar / Cabecera (Idéntica a la anterior) */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #ff3e3e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-bottom: 40px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background-color: #2a2a2a;
+            border: 2px solid #ff3e3e;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo h1 {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ff3e3e;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #ff3e3e;
+        }
+
+        /* Contenedor Principal de Redes */
+        .social-section {
+            background-color: #1a1a1a;
+            max-width: 900px;
+            width: 90%;
+            padding: 40px 30px;
+            border-radius: 8px;
+            border-top: 4px solid #ff3e3e;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .social-section h2 {
+            text-transform: uppercase;
+            font-size: 26px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .social-section h2 span {
+            color: #ff3e3e;
+        }
+
+        .social-section p {
+            color: #888;
+            font-size: 15px;
+            margin-bottom: 40px;
+        }
+
+        /* Grid de Redes Sociales */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            justify-content: center;
+        }
+
+        /* Enlace/Tarjeta Individual */
+        .social-card {
+            background-color: #121212;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        /* Contenedor de la Imagen */
+        .img-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #2a2a2a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        /* Efectos Hover */
+        .social-card:hover {
+            border-color: #ff3e3e;
+            box-shadow: 0 5px 15px rgba(255, 62, 62, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .social-card:hover .img-container {
+            transform: scale(1.05);
+        }
+
+        .social-card:hover h3 {
+            color: #ff3e3e;
+        }
+
+        /* Responsivo para móviles */
+        @media (max-width: 600px) {
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-placeholder">
+                <img src="tt.png" alt="Logo Clika Caps">
+            </div>
+            <div class="logo">
+                <h1>CLIKA<span>CAPS</span></h1>
+            </div>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Galería</a></li>
+                <li><a href="conocenos.html">Conocenos</a></li>
+                <li><a href="vision.html">Visión</a></li>
+                <li><a href="redes.html" class="active">Redes sociales</a></li>
+                <li><a href="probedores.html">Probedores</a></li>
+                <li><a href="form.html">Unete</a></li>
+                <li><a href="ubicacion.html">Ubicacion</a></li>
+            </ul>                                         
+        </nav>
+    </header>
+
+    <div class="social-section">
+        <h2>Sigue a la <span>Clika</span></h2>
+        <p>Entérate de los últimos lanzamientos de gorras y contenido exclusivo en nuestras redes oficiales.</p>
+
+        <div class="social-grid">
+            
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/tu_usuario" target="_blank" class="social-card">
+                <div class="img-container">
+                    <!-- REEMPLAZA POR TU IMAGEN O LOGO DE INSTAGRAM -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram Clika Caps">
+                </div>
+                <h3>Instagram</h3>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/tu_usuario" target="_blank" class="social-card">
+                <div class="img-container">
+                    <!-- REEMPLAZA POR TU IMAGEN O LOGO DE FACEBOOK -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Clika Caps">
+                </div>
+                <h3>Facebook</h3>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@tu_usuario" target="_blank" class="social-card">
+                <div class="img-container">
+                    <!-- REEMPLAZA POR TU IMAGEN O LOGO DE TIKTOK -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046124.png" alt="TikTok Clika Caps">
+                </div>
+                <h3>TikTok</h3>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/tu_numero" target="_blank" class="social-card">
+                <div class="img-container">
+                    <!-- REEMPLAZA POR TU IMAGEN O LOGO DE WHATSAPP -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp Clika Caps">
+                </div>
+                <h3>WhatsApp</h3>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>

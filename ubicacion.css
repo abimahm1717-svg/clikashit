@@ -1,0 +1,210 @@
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar / Cabecera */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #ff3e3e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* --- ESPACIO PARA EL LOGO EN LA NAVBAR --- */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background-color: #2a2a2a;
+            border: 2px solid #ff3e3e;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text h1 {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: #ff3e3e;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff3e3e;
+        }
+
+        /* --- SECCIÓN DE UBICACIÓN --- */
+        .location-section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .location-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .location-title h2 {
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .location-title span {
+            color: #ff3e3e;
+        }
+
+        /* Contenedor Principal en Dos Columnas */
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Columna de Información */
+        .info-panel {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 8px;
+            border-top: 4px solid #ff3e3e;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        /* Espacio grande para el logo dentro de la info */
+        .brand-showcase {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .big-logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background-color: #252525;
+            border: 3px solid #ff3e3e;
+            border-radius: 12px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .big-logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-block {
+            margin-bottom: 25px;
+        }
+
+        .info-block h3 {
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #ff3e3e;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-block p {
+            color: #cccccc;
+            font-size: 16px;
+        }
+
+        /* Columna del Mapa */
+        .map-panel {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+            height: 450px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        /* Estilo para el contenedor del mapa */
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #252525;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+            .map-panel {
+                height: 350px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 30px 5%;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #2a2a2a;
+            color: #555555;
+            font-size: 14px;
+        }

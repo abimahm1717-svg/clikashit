@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clika Caps | Nuestra Visión y Comunidad</title>
+    <style>
+        /* Estilos Base Estilo Streetwear */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar / Cabecera */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #ff3e3e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* --- ESPACIO PARA EL LOGO EN LA NAVBAR --- */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background-color: #2a2a2a;
+            border: 2px solid #ff3e3e;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text h1 {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: #ff3e3e;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff3e3e;
+        }
+
+
+        /* --- PORTADA DE LA SECCIÓN --- */
+        .vision-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1519766304817-4f37bda74a27?q=80&w=1200') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .vision-hero h2 {
+            font-size: 42px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .vision-hero p {
+            color: #ff3e3e;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 5%;
+        }
+
+        /* --- ANIMACIÓN FADE-IN EN SCROLL --- */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        /* Clase que activa el JavaScript al hacer scroll */
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- BLOQUES DE VISIÓN Y PRODUCTOS --- */
+        .vision-block {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .vision-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .vision-text {
+            flex: 1;
+        }
+
+        .vision-text h3 {
+            font-size: 28px;
+            text-transform: uppercase;
+            color: #ff3e3e;
+            margin-bottom: 15px;
+        }
+
+        .vision-text p {
+            color: #cccccc;
+            font-size: 16px;
+        }
+
+        .vision-image-box {
+            flex: 1;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #2a2a2a;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .vision-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .vision-image-box:hover img {
+            transform: scale(1.05);
+        }
+
+        /* --- SECCIÓN RELACIÓN CON COMPRADORES --- */
+        .relationship-section {
+            margin-top: 40px;
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 8px;
+            border-top: 4px solid #ff3e3e;
+        }
+
+        .relationship-section h3 {
+            font-size: 28px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .relationship-section h3 span {
+            color: #ff3e3e;
+        }
+
+        /* Acordeón / Tarjetas Interactivas */
+        .interactive-card {
+            background-color: #121212;
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .interactive-card:hover {
+            border-color: #ff3e3e;
+        }
+
+        .card-header {
+            padding: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header::after {
+            content: '+';
+            color: #ff3e3e;
+            font-size: 22px;
+            transition: transform 0.3s;
+        }
+
+        .interactive-card.open .card-header::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        .card-body {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            color: #aaaaaa;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .interactive-card.open .card-body {
+            padding: 0 20px 20px 20px;
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 30px 5%;
+            text-align: center;
+            border-top: 1px solid #2a2a2a;
+            color: #555555;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+
+        /* Ajustes Responsivos */
+        @media (max-width: 768px) {
+            .vision-block, .vision-block:nth-child(even) {
+                flex-direction: column;
+                gap: 20px;
+                margin-bottom: 50px;
+            }
+            .vision-image-box {
+                width: 100%;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <header>
+        <div class="logo-container">
+            <div class="logo-placeholder">
+                <!-- REEMPLAZA ESTA URL POR LA DE TU LOGO LOCAL (ej: img/logo.png) -->
+                <img src="tt.png" alt="Logo Clika Caps">
+            </div>
+            <div class="logo-text">
+                <h1>CLIKA<span>CAPS</span></h1>
+            </div>
+        </div>
+        <nav>
+             <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Galería</a></li>
+                <li><a href="conocenos.html">Conocenos</a></li>
+                <li><a href="vision.html">Visión</a></li>
+                <li><a href="redes.html">Redes sociales</a></li>
+                <li><a href="probedores.html">Probedores</a></li>
+                <li><a href="form.html">Unete</a></li>
+                <li><a href="ubicacion.html"Class="active">Ubicacion</a></li>
+            </ul>     
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="vision-hero">
+        <h2>Mirando Hacia el Futuro</h2>
+        <p>El Destino de la Clika</p>
+    </section>
+
+    <!-- CONTENIDO INTERACTIVO -->
+    <main class="content-container">
+
+        <!-- BLOQUE 1: LA VISIÓN DE LA TIENDA -->
+        <div class="vision-block scroll-reveal">
+            <div class="vision-text">
+                <h3>Nuestra Visión</h3>
+                <p>
+                    En el futuro, Clika Caps no solo será una tienda de gorras, sino el referente definitivo del streetwear y la cultura urbana a nivel nacional. Nos proyectamos expandiendo nuestras fronteras digitales hacia sucursales físicas clave donde la música, el arte urbano y el estilo se fusionen, creando un espacio de identidad único para la calle.
+                </p>
+            </div>
+            <div class="vision-image-box">
+                <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=500" alt="Futuro de Clika Caps">
+            </div>
+        </div>
+
+        <!-- BLOQUE 2: QUÉ QUEREMOS LOGRAR CON NUESTROS PRODUCTOS -->
+        <div class="vision-block scroll-reveal">
+            <div class="vision-text">
+                <h3>El Objetivo de Nuestros Productos</h3>
+                <p>
+                    Queremos que cada gorra de nuestro catálogo sea un símbolo de respeto y autenticidad. Nos esforzamos por consolidar líneas que vayan desde los clásicos e icónicos modelos de las grandes ligas (MLB, NBA, NFL) hasta colaboraciones de marcas exclusivas 1.1 y personalizaciones pesadas. Buscamos ofrecer la máxima calidad de bordado y siluetas perfectas para que llevar una gorra de Clika Caps signifique imponer estilo en cualquier esquina.
+                </p>
+            </div>
+            <div class="vision-image-box">
+                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=500" alt="Productos Premium">
+            </div>
+        </div>
+
+        <!-- SECCIÓN: RELACIÓN CON LOS COMPRADORES -->
+        <section class="relationship-section scroll-reveal">
+            <h3>Nuestra Relación con la <span>Comunidad</span></h3>
+            <p style="text-align: center; color: #aaa; margin-bottom: 25px;">No buscamos clientes, buscamos unir a la clika. Haz clic en cada pilar para ver nuestro compromiso:</p>
+
+            <!-- Tarjeta 1 -->
+            <div class="interactive-card" onclick="toggleCard(this)">
+                <div class="card-header">1. Respeto y Hermandad</div>
+                <div class="card-body">
+                    Para nosotros, el comprador es un miembro más de la Clika. Queremos lograr una relación basada en la confianza absoluta, ofreciendo atención directa, respuestas reales y un trato de compas que comparte la misma pasión por las gorras urbanas.
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="interactive-card" onclick="toggleCard(this)">
+                <div class="card-header">2. Exclusividad y Escucha Activa</div>
+                <div class="card-body">
+                    Nos importa lo que buscas. Nuestra relación se alimenta de tus gustos: si la calle pide un modelo descatalogado, una edición especial con parches conmemorativos o siluetas semi-curvas específicas, nos movemos con los proveedores para traértela antes que nadie.
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="interactive-card" onclick="toggleCard(this)">
+                <div class="card-header">3. Experiencia Más Allá de la Compra</div>
+                <div class="card-body">
+                    Queremos que recibir tu paquete de Clika Caps sea una experiencia adictiva. Desde el empaque protegido para cuidar las viseras hasta stickers y dinámicas en redes, buscamos que te sientas respaldado por una marca que vive y respira la cultura del barrio.
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        &copy; 2026 Clika Caps. Forjando la cultura urbana del mañana.
+    </footer>
+
+    <!-- SCRIPTS INTERACTIVOS CORREGIDOS -->
+    <script>
+        /* 1. REVELACIÓN EN SCROLL CORREGIDA */
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+
+        function checkScroll() {
+            const triggerBottom = window.innerHeight * 0.85;
+
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < triggerBottom) {
+                    // AQUÍ ESTABA EL ERROR (CORREGIDO A classList.add)
+                    element.classList.add('active'); 
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        // Ejecuta una vez al cargar por si los primeros bloques ya están a la vista
+        window.addEventListener('DOMContentLoaded', checkScroll);
+
+        /* 2. TARJETAS DESPLEGABLES (ACORDEÓN) */
+        function toggleCard(card) {
+            const allCards = document.querySelectorAll('.interactive-card');
+            allCards.forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('open');
+                }
+            });
+            card.classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>
